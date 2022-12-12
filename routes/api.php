@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\EnsureTokenIsValid;
 
 //Route::get('welcome', [CategoryController::class, 'apiWelcome']);
+//Route::get('accessToken/get/{user_id}', 'App\Http\Controllers\AccessTokenController@getJWT');
 
 
 Route::get('category/list', 'App\Http\Controllers\CategoryController@list');
@@ -28,7 +29,7 @@ Route::get('user/listById/{id}', 'App\Http\Controllers\UserController@listById')
 
 Route::get('login/auth', 'App\Http\Controllers\AuthController@authentication');
 
-Route::get('accessToken/get/{user_id}', 'App\Http\Controllers\AccessTokenController@getJWT');
+
 
 
 

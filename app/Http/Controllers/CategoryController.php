@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Http\Controllers;
 
 use App\Models\Category;
@@ -31,6 +30,8 @@ class CategoryController extends Controller
 
     public function list()
     {        
+        $token = substr($request->header('Authorization', 'Token <token>'), 6);
+
         $category = Category::all()->toArray();
         
         return response()->json(
@@ -45,6 +46,8 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
+        $token = substr($request->header('Authorization', 'Token <token>'), 6);
+
         $dataValidator = Validator::make($request->all(), [
             'name' => ['required', 'string', 'max:20'],
             'description' => ['nullable', 'string', 'max:255'],
@@ -94,6 +97,8 @@ class CategoryController extends Controller
 
     public function update(Request $request, $id)
     {
+        $token = substr($request->header('Authorization', 'Token <token>'), 6);
+
         $category = Category::find($id);
 
         if (empty($category)) {
@@ -153,6 +158,8 @@ class CategoryController extends Controller
 
     public function destroy($id)
     {
+        $token = substr($request->header('Authorization', 'Token <token>'), 6);
+        
         $category = Category::find($id);
 
         if (empty($category)) {
@@ -176,6 +183,8 @@ class CategoryController extends Controller
 
     public function listById($id)
     {
+        $token = substr($request->header('Authorization', 'Token <token>'), 6);
+
         $category = Category::find($id);
 
         if (empty($category)) {

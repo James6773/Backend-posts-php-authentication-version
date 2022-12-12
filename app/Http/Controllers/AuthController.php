@@ -12,17 +12,47 @@ class AuthController extends Controller
 {
     public function authentication(Request $request)
     {
-        $user = User::find($user_id);
+        $dataValidator = Validator::make($request->all(), [
+            'email' => ['required', 'string', 'max:20'],
+            'password' => ['required', 'string', 'email', 'max:255'],
+           
+        ]);
 
-        if (empty($user)) {
+        if ($dataValidator->fails()) {
+            return response()->json(
+                [
+                    'code' => 400,
+                    'status' => 'Bad Request',
+                    'message' => '¡Complete todos los campos requeridos correctamente para iniciar sesión!',
+                ]
+            );
+        }
+        
+        $userEmail = User::find($request->email);
+
+        if (empty($userEmail)) {
             return response()->json(
                 [
                     'code' => 400,
                     'status' => 'Not Found',
-                    'message' => '¡El id de usuario no existe!',
+                    'message' => '¡El email no existe!',
                 ]
             );
         }
+
+        $userPassword = User::find($request->password);
+
+        if (empty($userPassword)) {
+            return response()->json(
+                [
+                    'code' => 400,
+                    'status' => 'Not Found',
+                    'message' => '¡La contraseña no existe!',
+                ]
+            );
+        }
+
+        $user = User::find($id);
 
         $jwt = JWT::encode(['user_data' => $user], env('JWT_SECRET'), 'HS256');
 

@@ -30,6 +30,8 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
+        $token = substr($request->header('Authorization', 'Token <token>'), 6);
+
         $dataValidator = Validator::make($request->all(), [
             'user_id' => ['required', 'integer'],
             'category_id' => ['required', 'integer'],
@@ -124,6 +126,8 @@ class PostController extends Controller
 
     public function update(Request $request, $id)
     {
+        $token = substr($request->header('Authorization', 'Token <token>'), 6);
+
         $post = Post::find($id);
 
         if (empty($post)) {
@@ -230,6 +234,8 @@ class PostController extends Controller
 
     public function destroy($id)
     {
+        $token = substr($request->header('Authorization', 'Token <token>'), 6);
+
         $post = Post::find($id);
 
         if (empty($post)) {
@@ -253,6 +259,8 @@ class PostController extends Controller
 
     public function listById($id)
     {
+        $token = substr($request->header('Authorization', 'Token <token>'), 6);
+        
         $post = Post::find($id);
 
         if (empty($post)) {

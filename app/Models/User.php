@@ -22,12 +22,12 @@ class User extends Model
         'password'
     ];
 
-    protected $hidden = [
+    /*protected $hidden = [
         'access_token',
         'email_verified_at'
     ];
 
     protected $casts = [
         'email_verified_at' => 'datetime'
-    ];
+    ];*/
 }
