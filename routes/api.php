@@ -27,7 +27,7 @@ Route::put('user/update/{id}', 'App\Http\Controllers\UserController@update');
 Route::delete('user/destroy/{id}', 'App\Http\Controllers\UserController@destroy');
 Route::get('user/listById/{id}', 'App\Http\Controllers\UserController@listById');
 
-Route::get('login/auth', 'App\Http\Controllers\AuthController@authentication');
+Route::post('login/auth', 'App\Http\Controllers\AuthController@authentication');
 
 
 
