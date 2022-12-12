@@ -58,3 +58,61 @@ Permite eliminar definitivamente un post existente por su id.
 
 * POST: /api/login/auth  
 Genera un token de acceso. 
+
+##### ______________________________________________________________________________________________________________________________________________
+***Inserts:***
+
+*Roles inserts:
+
+INSERT INTO `posts-db`.`roles` (`role`) 
+VALUES ('Administrador');
+
+INSERT INTO `posts-db`.`roles` (`role`) 
+VALUES ('Lector');
+
+*Users inserts:
+
+INSERT INTO `posts-db`.`users` (`role_id`, `name`, `email`, `password`) 
+VALUES ('1', 'Alejandro Puerta', 'Alejo.Puerta@gmail.com', '123456789');
+
+INSERT INTO `posts-db`.`users` (`role_id`, `name`, `email`, `password`) 
+VALUES ('1', 'Sebastián Franco', 'Sebas.Franco@gmail.com', '123456789');
+
+INSERT INTO `posts-db`.`users` (`role_id`, `name`, `email`, `password`) 
+VALUES ('1', 'Rodrigo Betancur', 'Rodri.BetancurP@gmail.com', '123456789');
+
+INSERT INTO `posts-db`.`users` (`role_id`, `name`, `email`, `password`) 
+VALUES ('2', 'Manuela Estrada', 'Manu.Estrada gmail.com', '123456789');
+
+
+*Categories inserts:
+
+INSERT INTO `posts-db`.`categories` (`name`, `description`) 
+VALUES ('Tecnología', '');
+
+INSERT INTO `posts-db`.`categories` (`name`, `description`) 
+VALUES ('Hogar', '');
+
+INSERT INTO `posts-db`.`categories` (`name`, `description`) 
+VALUES ('Exterior', '');
+
+INSERT INTO `posts-db`.`categories` (`name`, `description`) 
+VALUES ('Mascotas', '');
+
+INSERT INTO `posts-db`.`categories` (`name`, `description`) 
+VALUES ('Gastronomía', '');
+
+INSERT INTO `posts-db`.`categories` (`name`, `description`) 
+VALUES ('Otros', '');
+
+
+*Posts inserts:
+
+INSERT INTO `posts-db`.`posts` (`category_id`, `user_id`, `tittle`, `content`, `state`, `description`) 
+VALUES ('1', '1', 'Iphone 12 Max', 'Publicidad', 1, '');
+
+INSERT INTO `posts-db`.`posts` (`category_id`, `user_id`, `tittle`, `content`, `state`, `description`) 
+VALUES ('2', '2', 'Sanduchera', 'Publicidad', 1, '');
+
+INSERT INTO `posts-db`.`posts` (`category_id`, `user_id`, `tittle`, `content`, `state`, `description`) 
+VALUES ('5', '3', 'Pizza Pepperoni', 'Oferta', 1, '');
