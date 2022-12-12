@@ -57,4 +57,4 @@ Permite eliminar definitivamente un post existente por su id.
 ***4. AuthController:***
 
 * POST: /api/login/auth 
-Genera un token de acceso.
+Genera un token de acceso. 
